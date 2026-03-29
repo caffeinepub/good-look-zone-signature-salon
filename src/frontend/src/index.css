@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    /* Dark luxury theme - primary */
+    --background: 0.13 0.005 240;
+    --foreground: 0.92 0.012 80;
+    --card: 0.16 0.008 240;
+    --card-foreground: 0.92 0.012 80;
+    --popover: 0.18 0.008 240;
+    --popover-foreground: 0.92 0.012 80;
+    --primary: 0.72 0.12 75;
+    --primary-foreground: 0.13 0.005 240;
+    --secondary: 0.19 0.008 240;
+    --secondary-foreground: 0.92 0.012 80;
+    --muted: 0.2 0.008 240;
+    --muted-foreground: 0.6 0.008 240;
+    --accent: 0.2 0.008 240;
+    --accent-foreground: 0.92 0.012 80;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.25 0.008 240;
+    --input: 0.22 0.008 240;
+    --ring: 0.72 0.12 75;
+    /* Gold accent */
+    --gold: 0.72 0.12 75;
+    --gold-hover: 0.76 0.13 75;
+    --gold-dim: 0.65 0.1 75;
+    --chart-1: 0.72 0.12 75;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.16 0.008 240;
+    --sidebar-foreground: 0.92 0.012 80;
+    --sidebar-primary: 0.72 0.12 75;
+    --sidebar-primary-foreground: 0.13 0.005 240;
+    --sidebar-accent: 0.19 0.008 240;
+    --sidebar-accent-foreground: 0.92 0.012 80;
+    --sidebar-border: 0.25 0.008 240;
+    --sidebar-ring: 0.72 0.12 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .section-heading {
+    font-family: "Playfair Display", Georgia, serif;
+    @apply text-gold text-4xl md:text-5xl font-bold tracking-widest uppercase;
+  }
+
+  .section-subheading {
+    @apply text-muted-foreground text-sm tracking-widest uppercase mt-2;
+  }
+
+  .gold-divider {
+    @apply w-16 h-0.5 bg-gold mx-auto mt-4 mb-8;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-background font-semibold px-6 py-3 rounded-sm tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-hover hover:shadow-gold;
+  }
+
+  .btn-ghost-gold {
+    @apply border border-gold text-gold font-semibold px-6 py-3 rounded-sm tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold hover:text-background;
+  }
+
+  .service-card {
+    @apply bg-card border border-border rounded-[10px] p-6 transition-all duration-300 hover:border-gold hover:shadow-gold hover:-translate-y-1;
+  }
+
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gallery-item {
+    @apply overflow-hidden rounded-[10px] relative cursor-pointer;
+  }
+
+  .gallery-item img {
+    @apply w-full h-full object-cover transition-transform duration-500;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.08);
+  }
+
+  .gallery-overlay {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300 flex items-center justify-center;
+    background: oklch(0.72 0.12 75 / 0.25);
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    @apply opacity-100;
+  }
+}
